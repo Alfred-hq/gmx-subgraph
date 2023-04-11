@@ -20,8 +20,6 @@ jobs:
         with:
           node-version: 19
           cache: 'yarn'
-      - name: Build
-        run: yarn build
       - name: Codegen
         run: npx graph codegen
       - name: Deploy Subgraph
