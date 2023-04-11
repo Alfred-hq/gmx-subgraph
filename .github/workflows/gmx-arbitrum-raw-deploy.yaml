@@ -1,0 +1,25 @@
+on:
+  push:
+    branches:
+      - master
+      - beta
+
+jobs:
+  gmx-arbitrum-raw:
+    name: gmx-arbitrum-raw
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./gmx-arbitrum-raw
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 19
+          cache: 'yarn'
+      - name: Build
+        run: yarn build
+      - name: Codegen
+        run: npx graph codegen
+      - name: Deploy Subgraph
+        run: npx graph deploy alfred-gmx-arbitrum-raw  --version-label v0.0.1  --node ${{ secrets.THE_GRAPH_NODE_DEPLOY_URL }}  --ipfs https://api.thegraph.com/ipfs/   --deploy-key ${{ secrets.DEPLOY_KEY }}
