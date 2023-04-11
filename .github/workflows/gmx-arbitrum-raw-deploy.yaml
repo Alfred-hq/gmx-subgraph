@@ -8,6 +8,7 @@ jobs:
   gmx-arbitrum-raw:
     name: gmx-arbitrum-raw
     runs-on: ubuntu-latest
+    environment: production
     defaults:
       run:
         working-directory: ./gmx-arbitrum-raw
