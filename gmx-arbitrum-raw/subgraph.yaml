@@ -14,7 +14,7 @@ dataSources:
       apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities:
-        - CreateIncreasePosition
+        - Creat`eIncreasePosition
         - CreateDecreasePosition
       abis:
         - name: PositionRouter
@@ -26,35 +26,35 @@ dataSources:
           handler: handleCreateDecreasePosition
       file: ./src/mapping.ts
 
-  - kind: ethereum/contract
-    name: RewardRouterV2
-    network: arbitrum-one
-    source:
-      address: "0xA906F338CB21815cBc4Bc87ace9e68c87eF8d8F1"
-      abi: RewardRouterV2
-      startBlock: 227000
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.4
-      language: wasm/assemblyscript
-      entities:
-        - StakeGmx
-        - UnstakeGmx
-        - StakeGlp
-        - UnstakeGlp
-      abis:
-        - name: RewardRouterV2
-          file: ./abis/RewardRouterV2.json
-      eventHandlers:
-        - event: StakeGmx(address,address,uint256)
-          handler: handleStakeGmx
-        - event: UnstakeGmx(address,address,uint256)
-          handler: handleUnstakeGmx
-        - event: StakeGlp(address,uint256)
-          handler: handleStakeGlp
-        - event: UnstakeGlp(address,uint256)
-          handler: handleUnstakeGlp
-      file: ./src/mapping.ts
+  # - kind: ethereum/contract
+  #   name: RewardRouterV2
+  #   network: arbitrum-one
+  #   source:
+  #     address: "0xA906F338CB21815cBc4Bc87ace9e68c87eF8d8F1"
+  #     abi: RewardRouterV2
+  #     startBlock: 227000
+  #   mapping:
+  #     kind: ethereum/events
+  #     apiVersion: 0.0.4
+  #     language: wasm/assemblyscript
+  #     entities:
+  #       - StakeGmx
+  #       - UnstakeGmx
+  #       - StakeGlp
+  #       - UnstakeGlp
+  #     abis:
+  #       - name: RewardRouterV2
+  #         file: ./abis/RewardRouterV2.json
+  #     eventHandlers:
+  #       - event: StakeGmx(address,address,uint256)
+  #         handler: handleStakeGmx
+  #       - event: UnstakeGmx(address,address,uint256)
+  #         handler: handleUnstakeGmx
+  #       - event: StakeGlp(address,uint256)
+  #         handler: handleStakeGlp
+  #       - event: UnstakeGlp(address,uint256)
+  #         handler: handleUnstakeGlp
+  #     file: ./src/mapping.ts
 
   - kind: ethereum/contract
     name: Vault
