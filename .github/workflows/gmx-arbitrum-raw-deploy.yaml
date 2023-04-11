@@ -20,9 +20,7 @@ jobs:
         with:
           node-version: 19
           cache: 'yarn'
-      - name: Install dependencies
-        run: yarn install
       - name: Codegen
         run: npx graph codegen
       - name: Deploy Subgraph
-        run: npx graph deploy alfred-gmx-arbitrum-raw  --version-label v0.0.1-${{ steps.branch-name.outputs.current_branch }}"  --node ${{ secrets.THE_GRAPH_NODE_DEPLOY_URL }}  --ipfs https://api.thegraph.com/ipfs/   --deploy-key ${{ secrets.DEPLOY_KEY }}
+        run: npx graph deploy alfred-gmx-arbitrum-raw  --version-label v0.0.1-${{ steps.branch-name.outputs.current_branch }}  --node ${{ secrets.THE_GRAPH_NODE_DEPLOY_URL }}  --ipfs https://api.thegraph.com/ipfs/   --deploy-key ${{ secrets.DEPLOY_KEY }}
