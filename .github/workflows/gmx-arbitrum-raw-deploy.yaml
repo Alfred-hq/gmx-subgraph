@@ -22,8 +22,6 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install
-      - name: Build
-        run: yarn build
       - name: Codegen
         run: npx graph codegen
       - name: Deploy Subgraph
