@@ -2,7 +2,7 @@ import { BigInt, ethereum } from "@graphprotocol/graph-ts"
 import * as vault from "../generated/Vault/Vault"
 import * as positionRouter from "../generated/PositionRouter/PositionRouter"
 // import * as glpManager from "../generated/GlpManager/GlpManager"
-import * as rewardRouter from "../generated/RewardRouterV2/RewardRouterV2"
+// import * as rewardRouter from "../generated/RewardRouterV2/RewardRouterV2"
 import {
   CollectMarginFee,
   CollectSwapFee,
@@ -266,52 +266,52 @@ export function handleSwap(event: vault.Swap): void {
 //   entity.save() 
 // }
 
-export function handleStakeGmx(event: rewardRouter.StakeGmx): void {
-  let entity = new StakeGmx(event.transaction.hash.toHexString())
+// export function handleStakeGmx(event: rewardRouter.StakeGmx): void {
+//   let entity = new StakeGmx(event.transaction.hash.toHexString())
 
-  entity.account = event.params.account.toHexString()
-  entity.token = event.params.token.toHexString()
-  entity.amount = event.params.amount
+//   entity.account = event.params.account.toHexString()
+//   entity.token = event.params.token.toHexString()
+//   entity.amount = event.params.amount
 
-  entity.transaction = _createTransactionIfNotExist(event)
-  entity.timestamp = event.block.timestamp.toI32()
+//   entity.transaction = _createTransactionIfNotExist(event)
+//   entity.timestamp = event.block.timestamp.toI32()
 
-  entity.save()
-}
+//   entity.save()
+// }
 
-export function handleUnstakeGmx(event: rewardRouter.UnstakeGmx): void {
-  let entity = new UnstakeGmx(event.transaction.hash.toHexString())
+// export function handleUnstakeGmx(event: rewardRouter.UnstakeGmx): void {
+//   let entity = new UnstakeGmx(event.transaction.hash.toHexString())
 
-  entity.account = event.params.account.toHexString()
-  entity.token = event.params.token.toHexString()
-  entity.amount = event.params.amount
+//   entity.account = event.params.account.toHexString()
+//   entity.token = event.params.token.toHexString()
+//   entity.amount = event.params.amount
 
-  entity.transaction = _createTransactionIfNotExist(event)
-  entity.timestamp = event.block.timestamp.toI32()
+//   entity.transaction = _createTransactionIfNotExist(event)
+//   entity.timestamp = event.block.timestamp.toI32()
 
-  entity.save()
-}
+//   entity.save()
+// }
 
-export function handleStakeGlp(event: rewardRouter.StakeGlp): void {
-  let entity = new StakeGlp(event.transaction.hash.toHexString())
+// export function handleStakeGlp(event: rewardRouter.StakeGlp): void {
+//   let entity = new StakeGlp(event.transaction.hash.toHexString())
 
-  entity.account = event.params.account.toHexString()
-  entity.amount = event.params.amount
+//   entity.account = event.params.account.toHexString()
+//   entity.amount = event.params.amount
 
-  entity.transaction = _createTransactionIfNotExist(event)
-  entity.timestamp = event.block.timestamp.toI32()
+//   entity.transaction = _createTransactionIfNotExist(event)
+//   entity.timestamp = event.block.timestamp.toI32()
 
-  entity.save()
-}
+//   entity.save()
+// }
 
-export function handleUnstakeGlp(event: rewardRouter.UnstakeGlp): void {
-  let entity = new UnstakeGlp(event.transaction.hash.toHexString())
+// export function handleUnstakeGlp(event: rewardRouter.UnstakeGlp): void {
+//   let entity = new UnstakeGlp(event.transaction.hash.toHexString())
 
-  entity.account = event.params.account.toHexString()
-  entity.amount = event.params.amount
+//   entity.account = event.params.account.toHexString()
+//   entity.amount = event.params.amount
 
-  entity.transaction = _createTransactionIfNotExist(event)
-  entity.timestamp = event.block.timestamp.toI32()
+//   entity.transaction = _createTransactionIfNotExist(event)
+//   entity.timestamp = event.block.timestamp.toI32()
 
-  entity.save()
-}
+//   entity.save()
+// }
