@@ -12,6 +12,9 @@ jobs:
       run:
         working-directory: ./gmx-arbitrum-raw
     steps:
+      - name: Set output
+        id: vars
+        run: echo ::set-output name=short_ref::${GITHUB_REF#refs/*/}
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
@@ -22,4 +25,4 @@ jobs:
       - name: Codegen
         run: npx graph codegen
       - name: Deploy Subgraph
-        run: npx graph deploy alfred-gmx-arbitrum-raw  --version-label v0.0.1  --node ${{ secrets.THE_GRAPH_NODE_DEPLOY_URL }}  --ipfs https://api.thegraph.com/ipfs/   --deploy-key ${{ secrets.DEPLOY_KEY }}
+        run: npx graph deploy alfred-gmx-arbitrum-raw  --version-label v0.0.1-${{ steps.vars.outputs.short_ref }}  --node ${{ secrets.THE_GRAPH_NODE_DEPLOY_URL }}  --ipfs https://api.thegraph.com/ipfs/   --deploy-key ${{ secrets.DEPLOY_KEY }}
