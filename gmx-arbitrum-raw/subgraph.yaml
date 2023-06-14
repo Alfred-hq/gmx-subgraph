@@ -14,7 +14,7 @@ dataSources:
       apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities:
-        - Creat`eIncreasePosition
+        - CreateIncreasePosition
         - CreateDecreasePosition
       abis:
         - name: PositionRouter
