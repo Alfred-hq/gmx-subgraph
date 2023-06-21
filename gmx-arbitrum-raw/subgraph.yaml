@@ -60,7 +60,7 @@ dataSources:
     name: Vault
     network: arbitrum-one
     source:
-      startBlock: 80000000
+      startBlock: 227000
       address: "0x489ee077994B6658eAfA855C308275EAd8097C4A"
       abi: Vault
     mapping:
